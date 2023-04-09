@@ -15,20 +15,20 @@ export default function NavBar(props) {
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href='/'>Home</a>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link" href='/about'>{props.aboutText}</a>
-            </li>
+            </li> */}
           </ul>
-          <div>
+          {/* <div>
             <button className="btn btn-primary rounded mx-2" onClick={()=>{return props.toggleMode('primary')}} style={{width:'30px',height:'30px'}}></button>
             <button className="btn btn-danger rounded mx-2" onClick={()=>{return props.toggleMode('danger')}} style={{width:'30px',height:'30px'}}></button>
             <button className="btn btn-success rounded mx-2" onClick={()=>{return props.toggleMode('success')}} style={{width:'30px',height:'30px'}}></button>
             <button className="btn btn-warning rounded mx-2" onClick={()=>{return props.toggleMode('warning')}} style={{width:'30px',height:'30px'}}></button>
-          </div>
-          {/* <div className={`form-check form-switch text-${props.mode==='light'?'#4f5153':'white'}`}>
+          </div> */}
+          <div className={`form-check form-switch text-${props.mode==='light'?'#4f5153':'white'}`}>
             <label className="form-check-label" htmlFor="switch1">Enable Dark Mode</label>
             <input className="form-check-input" type="checkbox" role="switch" id="switch1" onClick={props.toggleMode}/>
-          </div> */}
+          </div>
 
         </div>
       </div>
