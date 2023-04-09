@@ -60,12 +60,12 @@ export default function TextForm(props) {
                 <div className="mb-3">
                     <textarea className="form-control my-3 TextForm-bg" id="myBox" rows="8" style={{backgroundColor:props.mode==='dark'?'#4f5153':'white',color:props.mode==='dark'?'white':'#4f5153'}} value={text} onChange={handleOnChange}></textarea>
                     <div className="container">
-                        <button className='btn btn-primary mx-1 my-1' onClick={handleOnUpClick}>Convert to UpperCase</button>
-                        <button className='btn btn-warning mx-1 my-1' onClick={handleOnLoClick}>Convert to Lowercase</button>
-                        <button className='btn btn-danger mx-1 my-1' onClick={handleOnClearClick}>Clear Text</button>
+                        <button disabled={text.length===0} className='btn btn-primary mx-1 my-1' onClick={handleOnUpClick}>Convert to UpperCase</button>
+                        <button disabled={text.length===0} className='btn btn-warning mx-1 my-1' onClick={handleOnLoClick}>Convert to Lowercase</button>
+                        <button disabled={text.length===0} className='btn btn-danger mx-1 my-1' onClick={handleOnClearClick}>Clear Text</button>
                         <button className='btn btn-success mx-1 my-1' onClick={handleOnRandomClick}>Random Text</button>
-                        <button className='btn btn-primary mx-1 my-1' onClick={handleCopy}>Copy Text</button>
-                        <button className='btn btn-primary mx-1 my-1' onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+                        <button disabled={text.length===0} className='btn btn-primary mx-1 my-1' onClick={handleCopy}>Copy Text</button>
+                        <button disabled={text.length===0} className='btn btn-primary mx-1 my-1' onClick={handleExtraSpaces}>Remove Extra Spaces</button>
                     </div>
                 </div>
             </div>
@@ -73,8 +73,8 @@ export default function TextForm(props) {
         <div className="container" style={{color:props.mode==='dark'?'white':'#4f5153'}}>
             <div className="container" style={{border:`2px solid ${props.mode==='dark'?'white':'#4f5153'}`}}>
                 <h2>Text Summary</h2>
-                <p>{text.length===0?0:text.split(' ').length} words and {text.length} characters</p>
-                <p>{0.008*text.split(' ').length }Minutes to Read</p>
+                <p>{text.split(" ").filter((ele)=>{return ele.length!==0}).length} words and {text.length} characters</p>
+                <p>{0.008*text.split(' ').filter((ele)=>{return ele.length!==0}).length } Minutes to Read</p>
             </div>
             <div className="container my-2" style={{border:`2px solid ${props.mode==='dark'?'white':'#4f5153'}`}}>
                 <h2>Preview</h2>
